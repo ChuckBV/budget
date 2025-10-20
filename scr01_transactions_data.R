@@ -160,3 +160,10 @@ tail(df_select2, 10)
 # Drop records for 6 categories not used so far in 2025
 df_select2 <- df_select2 %>% 
   filter(!is.na(rec_id))
+
+# Save df as and categories as csv
+write.csv(df,"dat_y25transactions.csv",row.names = FALSE) 
+write.csv(df_categories,"dat_y25_budget_categories.csv",row.names = FALSE)
+
+# Save df_select2 as an R dataset
+saveRDS(df_select2,"df_transactions_cleaned_categorized.Rds")
