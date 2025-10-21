@@ -1,5 +1,7 @@
 # scr01_transactions_data.R
 
+# To-do: Clean this up and use it as the basis of an R Markdown document
+
 library(googlesheets4)
 library(tidyverse)
 library(janitor)
