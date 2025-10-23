@@ -1,4 +1,6 @@
-# scr02_summarize_transaction.R
+# scr02_summarize_transactions_by_type.R
+
+## Overview of the three main types--Transfer, Income, and Expense
 
 library(tidyverse)
 
@@ -15,8 +17,6 @@ df_select3 <- df_select2 %>%
   filter(qrtr <= 3)
 
 tail(df_select3)
-
-unique(df_select3$type)
 
 # Get type as ordered factor
 df_select3$type <- factor(df_select3$type, levels = c("Transfer","Income","Expense"))
@@ -41,3 +41,7 @@ unique(df_select3$group)
 # [1] "Living"         "Discretionary"  "Bills"          "Transfer Types" "Charlotte"     
 # [6] "Primary Income"
 
+#----------------------------------------------------------------------------#
+#-- Save first data set for the first three quarters w months & quarters ----
+
+saveRDS(df_select3,"df_q1_to_q1_indexed_qrtr_month.Rds")
